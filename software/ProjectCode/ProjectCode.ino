@@ -43,7 +43,7 @@ void moistureLevel()
 {
   int value = analogRead(MOISTURESENSOR);
   int moisturePercentage = map(value, WET, DRY, 100, 0); 
-  pre = constrain(pre,0,100);
+  int pre = constrain(moisturePercentage,0,100);
   Serial.print("Moisture Level: ");
   Serial.print(pre);
   Serial.println("%");
