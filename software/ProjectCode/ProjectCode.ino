@@ -1,99 +1,138 @@
+//code by William Housel
+
+#include <SPI.h>
+#include <SD.h>
+
 const int MOISTURESENSOR = A1; //the sensor to read
-const int WATERLEVELSENSORPIN = A2;
-const int WATERLEVELSENSORPOWER = 3;
 const int PUMP = 2; //the pin connecting to the pump's input
 const int WET = 230; //sensor reading for wet
 const int DRY = 615; //sensor reading for dry
 const int WET_THRESHOLD = 80; 
 const int DRY_THRESHOLD = 20;
-int waterLevel = 0;
-const unsigned long WATERLEVELINTERVAL = 100;
-const unsigned long MOISTURETESTINGINTERVAL = 1000;
-unsigned long waterLevelTimer = 0;
-unsigned long MoistTimer = 0;
-bool lowWater = true;
-const int LOW_WATER_THRESHOLD = 100;
+const int floatSwitchPin = 4;
 
- 
+const int chipSelect = 10; //activates the SD card module.
+
+unsigned long seconds; //seconds since cycle began, changed to long to prevent int overflow
+int soilMoistureState; //soil moisture percentage
+int waterLevelState; //0 = Empty, 1 = Full
+int pumpState; //0 = Off, 1 = On
+
+const unsigned long LOG_INTERVAL  = 1000;
+unsigned long logTimer = 0;
+
+
 void setup() {
   Serial.begin(9600);
   pinMode(MOISTURESENSOR, INPUT);
   pinMode(PUMP, OUTPUT);
-  pinMode(WATERLEVELSENSORPIN, INPUT);
-  pinMode(WATERLEVELSENSORPOWER, OUTPUT);
+    pinMode(floatSwitchPin, INPUT_PULLUP); 
+
   digitalWrite(PUMP, HIGH); //ensures the pump starts off
+  Serial.println("Seconds, Moisture %, Water Level, Pump State");
+  delay(100); //gives the SD card reader a chance to turn on and stabilize
+  if (!SD.begin(chipSelect)) 
+  {
+    Serial.println("SD initialization failed! Check card/wiring.");
+  } 
+  else 
+  {
+    Serial.println("SD card initialized successfully.");
+  }
+
+  //prints the headers to data.txt for easy graphing
+  File dataFile = SD.open("data.txt", FILE_WRITE);
+    
+    if (dataFile) {
+      
+      dataFile.println("Seconds, Moisture %, Water Level, Pump State");
+      dataFile.close(); 
+    }
+    else 
+    {
+      Serial.println("Error accessing the SD card");
+    }
 
 }
  
 void loop() {
   unsigned long currentTime = millis();
-  if (currentTime - MoistTimer >= MOISTURETESTINGINTERVAL)
+  if (currentTime - logTimer >= LOG_INTERVAL )
   {
-    moistureLevel();
-    MoistTimer = currentTime;
-  }
-  if (currentTime - waterLevelTimer >= WATERLEVELINTERVAL)
-  {
-      findWaterLevel();
-      waterLevelTimer = currentTime;
+    seconds = currentTime/1000;
+      
+      findWaterLevel(); //changed to use side mounted magnetic float switch
+      moistureLevel();
+      
+      logTimer = currentTime;
+
+    File dataFile = SD.open("data.txt", FILE_WRITE);
+    
+    if (dataFile) {
+      
+      dataFile.print(seconds);
+      dataFile.print(",");
+      dataFile.print(soilMoistureState);
+      dataFile.print(",");
+      dataFile.print(waterLevelState);
+      dataFile.print(",");
+      dataFile.println(pumpState);
+      
+      
+      dataFile.close(); 
+    } 
+    else 
+    {
+       Serial.println("Error accessing the SD card");
+    }
+      //printing the actions as comma seperated values (csv) for easy tracking
+      // Serial.print(seconds);
+      // Serial.print(",");
+      // Serial.print(soilMoistureState);
+      // Serial.print(",");
+      // Serial.print(waterLevelState);
+      // Serial.print(",");
+      // Serial.println(pumpState);
   }
 
 }
 void moistureLevel()
 {
   int value = analogRead(MOISTURESENSOR);
-  int moisturePercentage = map(value, WET, DRY, 100, 0); 
-  int pre = constrain(moisturePercentage,0,100);
-  Serial.print("Moisture Level: ");
-  Serial.print(pre);
-  Serial.println("%");
-  if (pre >= WET_THRESHOLD)
+  int moisturePercentageRaw = map(value, WET, DRY, 100, 0); 
+  int moisturePercentage = constrain(moisturePercentageRaw,0,100);
+  if (moisturePercentage >= WET_THRESHOLD)
   {
-    Serial.println("Soil is wet");
     digitalWrite(PUMP, HIGH);
-    Serial.println("Pump: OFF");
+    pumpState = 0;
   }
-  else if (pre >= DRY_THRESHOLD)
+  else if (moisturePercentage >= DRY_THRESHOLD)
   {
-    Serial.println("Soil is damp");
     digitalWrite(PUMP, HIGH);
-    Serial.println("Pump: OFF");
+    pumpState = 0;
   }
-  else if (lowWater == false)
+  else if (waterLevelState == 1)
   {
-    Serial.println("Soil is dry");
     digitalWrite(PUMP, LOW);
-    Serial.println("Pump: ON");
+    pumpState = 1;
   }
   else
   {
-    Serial.println("Soil is dry, Water tank empty");
     digitalWrite(PUMP, HIGH);
-    Serial.println("Pump: OFF");
+    pumpState = 0;
   }
+  soilMoistureState = moisturePercentage;
 }
-void findWaterLevel() {
-  digitalWrite(WATERLEVELSENSORPOWER, HIGH);  // Turn the sensor ON
-  delay(100); //here until i can get a better sensor
-  int val = analogRead(WATERLEVELSENSORPIN);      // Read the analog value form sensor
-  digitalWrite(WATERLEVELSENSORPOWER, LOW);   // Turn the sensor OFF
-  if (val <= 100)
+void findWaterLevel() 
+{
+  int switchState = digitalRead(floatSwitchPin);
+  if (switchState == LOW) 
   {
-    lowWater = true;
-  }
-  else
+    waterLevelState = 1;
+  } 
+  else 
   {
-    lowWater = false;
-  }
-  Serial.print("Water Level Reading: ");
-  Serial.println(val);
-  if(lowWater)
-  {
-      Serial.println("Reservoir: Empty");
-  }
-  else
-  {
-      Serial.println("Reservoir: Full");
+    waterLevelState = 0;
   }
 }          
                     
