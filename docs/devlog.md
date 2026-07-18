@@ -16,7 +16,7 @@ Developed code and a working prototype that successfully reads the soil moisture
 
 # July 10, 2026
 
-Sketched the initial version 1 prototype layout. Tested and integrated the water level sensor into the current build. Through testing, I ran into an issue with extremely irregular and unstable readings, which, through more testing, I learned arose from a stabilization period that the current water level sensor required. 
+Sketched the initial version 1 prototype layout. Tested and integrated the water level sensor into the current build. Through testing, I ran into an issue with extremely irregular and unstable readings, which, through more testing, I learned arose from a stabilization period that the current water level sensor required.
 
 # 
 
@@ -28,9 +28,37 @@ Designed the prototype housing for Arduino. Encountered repeated issues with the
 
 # July 12, 2026
 
-Designed the clips to prevent kinking and guide the tubing for the watering system. Bought digital calipers to accurately measure parts for 3d modeling, a micro SD card for which I could log data during extended testing, more vinyl tubing allowing for more testing for different and possibly more efficient watering system designs, side-mounted magnetic float sensors to replace my current subpar water level sensor, and a connector between the Arduino and the micro SD card. Started 3d printing the temporary housing for the Arduino and the tube clips. 
+Designed the clips to prevent kinking and guide the tubing for the watering system. Bought digital calipers to accurately measure parts for 3d modeling, a micro SD card for which I could log data during extended testing, more vinyl tubing allowing for more testing for different and possibly more efficient watering system designs, side-mounted magnetic float sensors to replace my current subpar water level sensor, and a connector between the Arduino and the micro SD card. Started 3d printing the temporary housing for the Arduino and the tube clips.
+
+
+
+
+
+
+
+# July 15
+
+
+
+Redesigned clips to minimize print failures and better route tubing. Prepared tube routing clips for printing.
+
+
+
+# July 16
+
+
+
+Coded and tested side-mounted magnetic float sensors. Verified the ability to accurately and quickly check for the presence of water. Used code from HuHamster’s YouTube channel to test the MicroSD card module's ability to save various plant habitat data to an external drive.
+
+
+
+# July 17
+
+
+
+Overhauled project code to use the new use the new MicroSD card module and side-mounted magnetic float sensors. Lightly cleaned and commented on code to improve readability.  Began printing the various tube routing clips.
+
+
 
 # 
-
-
 
