@@ -21,19 +21,27 @@ int pumpState; //0 = Off, 1 = On
 const unsigned long LOG_INTERVAL  = 1000;
 unsigned long logTimer = 0;
 
+const int SD_CARD_FUNCTION_PIN = 3;
+
 
 void setup() {
   Serial.begin(9600);
   pinMode(MOISTURESENSOR, INPUT);
   pinMode(PUMP, OUTPUT);
-    pinMode(floatSwitchPin, INPUT_PULLUP); 
+  pinMode(floatSwitchPin, INPUT_PULLUP); 
+  pinMode(SD_CARD_FUNCTION_PIN, OUTPUT);
+
+
 
   digitalWrite(PUMP, HIGH); //ensures the pump starts off
+  digitalWrite(SD_CARD_FUNCTION_PIN, LOW);
   Serial.println("Seconds, Moisture %, Water Level, Pump State");
   delay(100); //gives the SD card reader a chance to turn on and stabilize
   if (!SD.begin(chipSelect)) 
   {
     Serial.println("SD initialization failed! Check card/wiring.");
+    digitalWrite(SD_CARD_FUNCTION_PIN, HIGH);
+
   } 
   else 
   {
@@ -51,6 +59,8 @@ void setup() {
     else 
     {
       Serial.println("Error accessing the SD card");
+      digitalWrite(SD_CARD_FUNCTION_PIN, HIGH);
+
     }
 
 }
@@ -83,16 +93,18 @@ void loop() {
     } 
     else 
     {
-       Serial.println("Error accessing the SD card");
+      Serial.println("Error accessing the SD card");
+      digitalWrite(SD_CARD_FUNCTION_PIN, HIGH);
+
     }
       //printing the actions as comma seperated values (csv) for easy tracking
-      // Serial.print(seconds);
-      // Serial.print(",");
-      // Serial.print(soilMoistureState);
-      // Serial.print(",");
-      // Serial.print(waterLevelState);
-      // Serial.print(",");
-      // Serial.println(pumpState);
+      Serial.print(seconds);
+      Serial.print(",");
+      Serial.print(soilMoistureState);
+      Serial.print(",");
+      Serial.print(waterLevelState);
+      Serial.print(",");
+      Serial.println(pumpState);
   }
 
 }

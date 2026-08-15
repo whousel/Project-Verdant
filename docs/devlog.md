@@ -2,7 +2,7 @@
 
 ## July 8, 2026
 
-Created GitHub repository, defined successful version 1, and finished project planning. Tomorrow, I plan to relearn circuit design and how to use analog inputs with an Arduino.
+Created a GitHub repository, defined a successful version 1, and finished project planning. Tomorrow, I plan to relearn circuit design and how to use analog inputs with an Arduino.
 
 
 
@@ -36,7 +36,7 @@ Designed the clips to prevent kinking and guide the tubing for the watering syst
 
 
 
-# July 15
+# July 15, 2026
 
 
 
@@ -44,7 +44,7 @@ Redesigned clips to minimize print failures and better route tubing. Prepared tu
 
 
 
-# July 16
+# July 16, 2026
 
 
 
@@ -52,13 +52,67 @@ Coded and tested side-mounted magnetic float sensors. Verified the ability to ac
 
 
 
-# July 17
+# July 17, 2026
 
 
 
-Overhauled project code to use the new use the new MicroSD card module and side-mounted magnetic float sensors. Lightly cleaned and commented on code to improve readability.  Began printing the various tube routing clips.
+Overhauled project code to use the new MicroSD card module and side-mounted magnetic float sensors. Lightly cleaned and commented on code to improve readability.  Began printing the various tube routing clips.
 
 
+
+# July 30, 2026
+
+
+
+Attached clips to housing and began assembly of prototype 1 v1
+
+
+
+# July 31, 2026
+
+
+
+Purchased a CNC machine to manufacture parts for the build
+
+
+
+# Aug 1, 2026
+
+
+
+Finished assembly of prototype v1. Tested the functionality and documented the following issues: leakage from the side-mounted horizontal float switch, not able to tell if the SD card is behaving correctly, lack of drainage holes, lack of holes in the watering tubing, the pump attachment is not attached securely, need to direct the excess water tubing into the reservoir.
+
+
+
+# Aug 4, 2026
+
+
+
+3d modeled the excess water guide, secure pump attachment, and water drainage tubes. Began printing the CAD models.
+
+
+
+# Aug 6, 2026
+
+
+
+Added an LED indicator acting as a sticky state indicator showing whether the SD card is receiving data correctly.
+
+
+
+# Aug 8, 2026
+
+
+
+Installed new CAD designs onto the apparatus. Redesigned the pump holder, printed a new model, and installed it.
+
+
+
+# Aug 14, 2026
+
+
+
+Started adding holes to the water tubing. Encountered issues with inconsistent water pressure. Holes near the pump sprayed water, while holes at the end of the tubing had water trickling out. When the pump first turns on, the water pressure spikes and sprays water everywhere, soaking my electronics and killing a nano. Unfortunately, the nano showed a white substance, which I found out may be a mineral buildup from the water hitting it directly. Even after cleaning with 91% isopropyl alcohol, the Arduino remained useless and inoperable. Encountered issues: Need a splash shield to protect from water damage, pressure issues, need to improve drainage tubing attachment, need a way to, temporarily, secure the filter to the base of the plant container, current pump clips allow for water to leave the container if pressure is low, and lastly experiencing some issues with a lack of data being written to the SD card that needs to be investigated.
 
 # 
 
