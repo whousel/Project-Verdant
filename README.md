@@ -1,4 +1,3 @@
-<img width="1919" height="1079" alt="image" src="https://github.com/user-attachments/assets/e4e2a36d-6811-47fe-837b-f09aa9cce20c" />
 # Project Verdant
 
 
