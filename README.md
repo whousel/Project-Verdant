@@ -13,8 +13,7 @@
 #### Giving plants the perfect start.
 
 
-
-!\[Project Verdant](media/hero.jpg)
+![Project Verdant](media/hero.jpg)
 
 
 
@@ -71,7 +70,7 @@ Water is distributed through multiple openings in the watering tubing to reduce 
 Sensor readings and system states are recorded to a MicroSD card, allowing the system's behavior to be analyzed after testing.
 
 
-
+```text
                  ┌───────────────────┐
                  │ Soil Moisture      │
                  │ Sensor             │
@@ -92,6 +91,7 @@ Sensor readings and system states are recorded to a MicroSD card, allowing the s
              ▼
          Watering
           System
+          
 
 ##### Hardware
 
@@ -168,7 +168,7 @@ Five logged tests were completed to evaluate system behavior and sensor stabilit
 
 During an uninterrupted test lasting approximately 44 minutes, measured soil moisture gradually decreased from approximately 55% to 48%.
 
-
+![Extended moisture monitoring](media/extended-moisture-test.png)
 
 The readings remained highly stable throughout the test, with no unexpected fluctuations or large measurement jumps.
 
@@ -178,11 +178,11 @@ The readings remained highly stable throughout the test, with no unexpected fluc
 
 The coco coir used during testing retained moisture extremely well, so the system did not naturally reach the configured watering threshold during the extended monitoring tests.
 
-
+![Automatic watering moisture response](media/automatic-watering-moisture.png)
 
 The automatic watering response was therefore separately validated by intentionally removing the soil moisture sensor from the growing medium to simulate a dry condition.
 
-
+![Pump activation and water level](media/automatic-watering-pump.png)
 
 The measured moisture value decreased, causing the pump to activate. Returning the sensor to the growing medium caused the measured moisture value to increase and the pump to stop. This process was repeated multiple times.
 
