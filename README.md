@@ -1,12 +1,9 @@
-# Project-Verdant - README
+<img width="1919" height="1079" alt="image" src="https://github.com/user-attachments/assets/e4e2a36d-6811-47fe-837b-f09aa9cce20c" />
+# Project Verdant
 
 
 
-## Project Verdant
-
-
-
-### Automated Plant Monitoring \& Watering System
+## Automated Plant Monitoring \& Watering System
 
 
 
@@ -21,7 +18,7 @@
 
 
 
-Project Verdant is an automated plant monitoring and watering system designed to reduce the need for manual plant care. The system continuously monitors soil moisture and reservoir water level, automatically activates a pump when the growing medium becomes too dry, and records system data to a MicroSD card for later analysis.
+Project Verdant is an automated plant monitoring and watering system designed to reduce the need for manual plant care. The system continuously monitors soil moisture and reservoir water level, automatically activates a pump when the measured moisture falls below the configured threshold, and records system data to a MicroSD card for later analysis.
 
 
 
@@ -127,8 +124,7 @@ A clear acetate splash shield provides an additional layer of protection for the
 
 
 
-CAD files for the custom components are available in the hardware/C.A.D directory.
-
+CAD files for the custom components are available in the [`hardware/C.A.D`](hardware/C.A.D/) directory.
 
 
 ### **Software**
@@ -146,12 +142,11 @@ The current version uses local MicroSD storage rather than wireless data transfe
 
 
 
-The primary project code is available in software/ProjectCode.
+The primary project code is available in [`software/ProjectCode`](software/ProjectCode/).
 
 
 
-Additional test programs used during development are also included in the software directory.
-
+Additional test programs used during development are also included in the [`software`](software/) directory.
 
 
 ### **Testing \& Validation**
@@ -160,8 +155,7 @@ Testing was performed iteratively throughout development, beginning with short f
 
 
 
-Five logged tests were completed to evaluate system behavior and sensor stability. Representative raw datasets are included in the data directory.
-
+Three logged tests were completed to evaluate system behavior and sensor stability. Representative raw datasets are included in the [`data`](data/) directory.
 
 
 ### **Extended Monitoring**
@@ -190,7 +184,7 @@ The measured moisture value decreased, causing the pump to activate. Returning t
 
 The corresponding water-level and pump-state data shows the pump activating during the simulated dry conditions and stopping after the sensor was returned to the growing medium.
 
-Representative raw datasets are available in data.
+Representative raw datasets are available in [`data/`](data/).
 
 
 
@@ -209,13 +203,12 @@ Several major design changes resulted directly from testing, including:
 * Adding MicroSD data logging for extended testing.
 * Improving electrical connections to prevent intermittent sensor disconnections.
 
-A detailed development history is available in the development log.
-
+The [`development log`](docs/devlog.md) documents the project's progression from initial prototype through the completed V1 system.
 
 
 ### **Engineering Decisions**
 
-Major design decisions and their reasoning are documented in decisions.md.
+The reasoning behind major hardware and design choices is documented in [`decisions.md`](docs/decisions.md).
 
 These include the choice of:
 
@@ -231,13 +224,12 @@ These include the choice of:
 
 ### **Requirements**
 
-The original and completed Version 1 requirements, along with planned future functionality, are documented in requirements.md.
-
+The original and completed Version 1 requirements, along with planned future functionality, are documented in [`requirements`](docs/requirements.md).
 
 
 ### **Bill of Materials**
 
-The estimated cost of the prototype is documented in the bill of materials.
+The estimated cost of the prototype is documented in the [`bill of materials`](docs/bill%20of%20materials.md).
 
 Component costs are based on the portion of each purchased component used in the prototype. Multi-packs are accounted for using the estimated cost of the individual components used.
 
@@ -289,17 +281,15 @@ Explore the use of nutrient-enriched water and potential adaptation of the syste
 
 Project-Verdant/
 
-├── software/       # Arduino source code and development test programs
+├── [`software/`](software/) — Arduino source code
 
-├── hardware/       # CAD and hardware design files
+├── [`hardware/C.A.D/`](hardware/C.A.D/) — CAD and 3D-printable parts
 
-├── media/          # Project photos and test graphs
+├── [`data/`](data/) — representative test datasets
 
-├── data/           # Representative raw test data
+├── [`media/`](media/) — project images and test graphs
 
-└── docs/           # Requirements, decisions, BOM, and development log
-
-
+└── [`docs/`](docs/) — requirements, decisions, development log, and bill of materials
 
 ### **Lessons Learned**
 
