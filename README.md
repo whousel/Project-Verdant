@@ -17,7 +17,7 @@
 
 
 
-#### **Overview**
+### **Overview**
 
 
 
@@ -29,7 +29,7 @@ The project combines embedded software, electronics, CAD, 3D printing, and itera
 
 
 
-#### **Key Features**
+### **Key Features**
 
 
 
@@ -55,7 +55,7 @@ The project combines embedded software, electronics, CAD, 3D printing, and itera
 
 
 
-#### **How It Works**
+### **How It Works**
 
 
 
