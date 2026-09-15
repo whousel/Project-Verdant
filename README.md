@@ -70,7 +70,7 @@ Water is distributed through multiple openings in the watering tubing to reduce 
 Sensor readings and system states are recorded to a MicroSD card, allowing the system's behavior to be analyzed after testing.
 
 
-```text
+```
                  ┌───────────────────┐
                  │ Soil Moisture      │
                  │ Sensor             │
@@ -92,7 +92,7 @@ Sensor readings and system states are recorded to a MicroSD card, allowing the s
          Watering
           System
           
-'''text
+```
 ### **Hardware**
 
 
