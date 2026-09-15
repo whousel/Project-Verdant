@@ -17,7 +17,7 @@
 
 
 
-##### Overview
+#### **Overview**
 
 
 
@@ -29,7 +29,7 @@ The project combines embedded software, electronics, CAD, 3D printing, and itera
 
 
 
-##### Key Features
+#### **Key Features**
 
 
 
@@ -55,7 +55,7 @@ The project combines embedded software, electronics, CAD, 3D printing, and itera
 
 
 
-##### How It Works
+#### **How It Works**
 
 
 
@@ -92,12 +92,12 @@ Sensor readings and system states are recorded to a MicroSD card, allowing the s
          Watering
           System
           
-'''
-##### Hardware
+'''text
+### **Hardware**
 
 
 
-##### Electronics
+### **Electronics**
 
 * Arduino Nano
 * Capacitive soil moisture sensor
@@ -115,7 +115,7 @@ Sensor readings and system states are recorded to a MicroSD card, allowing the s
 
 
 
-##### Mechanical System
+### **Mechanical System**
 
 The prototype uses two 2.5-quart storage containers, one for the growing medium and one for the water reservoir.
 
@@ -131,7 +131,7 @@ CAD files for the custom components are available in the hardware/C.A.D director
 
 
 
-##### Software
+### **Software**
 
 The Arduino software is responsible for:
 
@@ -154,7 +154,7 @@ Additional test programs used during development are also included in the softwa
 
 
 
-##### Testing \& Validation
+### **Testing \& Validation**
 
 Testing was performed iteratively throughout development, beginning with short functional tests and progressing to repeated extended-duration tests.
 
@@ -164,7 +164,7 @@ Five logged tests were completed to evaluate system behavior and sensor stabilit
 
 
 
-##### Extended Monitoring
+### **Extended Monitoring**
 
 During an uninterrupted test lasting approximately 44 minutes, measured soil moisture gradually decreased from approximately 55% to 48%.
 
@@ -174,7 +174,7 @@ The readings remained highly stable throughout the test, with no unexpected fluc
 
 
 
-##### Automatic Watering Response
+### **Automatic Watering Response**
 
 The coco coir used during testing retained moisture extremely well, so the system did not naturally reach the configured watering threshold during the extended monitoring tests.
 
@@ -194,7 +194,7 @@ Representative raw datasets are available in data.
 
 
 
-##### Development Process
+### **Development Process**
 
 Project Verdant was developed through repeated physical testing, failure analysis, redesign, and validation.
 
@@ -213,7 +213,7 @@ A detailed development history is available in the development log.
 
 
 
-##### Engineering Decisions
+### **Engineering Decisions**
 
 Major design decisions and their reasoning are documented in decisions.md.
 
@@ -229,13 +229,13 @@ These include the choice of:
 
 
 
-##### Requirements
+### **Requirements**
 
 The original and completed Version 1 requirements, along with planned future functionality, are documented in requirements.md.
 
 
 
-##### Bill of Materials
+### **Bill of Materials**
 
 The estimated cost of the prototype is documented in the bill of materials.
 
@@ -243,49 +243,49 @@ Component costs are based on the portion of each purchased component used in the
 
 
 
-##### Future Development
+### **Future Development**
 
 Project Verdant is intended to continue beyond the current prototype.
 
 
 
-##### Plant Profiles
+### **Plant Profiles**
 
 Add predefined plant profiles with different moisture requirements. Users will eventually be able to select and modify plant profiles and adjust settings directly on the device or through an application.
 
 
 
-##### Environmental Monitoring
+### **Environmental Monitoring**
 
 Add temperature and airflow monitoring and eventually incorporate these measurements into plant-care decisions.
 
 
 
-##### Improved Watering
+### **Improved Watering**
 
 Redesign the watering system to provide more consistent and reproducible water distribution while reducing the amount of manual setup required.
 
 
 
-##### User Experience
+### **User Experience**
 
 Develop a more refined external enclosure, improve the LED indicator system, make the reservoir easier to refill, and improve access to components for maintenance.
 
 
 
-##### Safety and Reliability
+### **Safety and Reliability**
 
 Continue improving protection against water and electrical damage and increase the system's ability to operate safely for extended periods without supervision.
 
 
 
-##### Expanded Applications
+### **Expanded Applications**
 
 Explore the use of nutrient-enriched water and potential adaptation of the system for hydroponic and other automated growing applications.
 
 
 
-##### Repository Structure
+### **Repository Structure**
 
 Project-Verdant/
 
@@ -301,7 +301,7 @@ Project-Verdant/
 
 
 
-#### Lessons Learned
+### **Lessons Learned**
 
 Project Verdant has been developed through repeated testing, failure, redesign, and validation.
 
@@ -311,7 +311,7 @@ The current prototype is the result of these iterative improvements rather than 
 
 
 
-#### Current Status
+### **Current Status**
 
 Version 1 — Functional
 
