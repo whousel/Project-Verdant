@@ -92,7 +92,7 @@ Sensor readings and system states are recorded to a MicroSD card, allowing the s
          Watering
           System
           
-
+'''
 ##### Hardware
 
 
