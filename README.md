@@ -72,47 +72,26 @@ Sensor readings and system states are recorded to a MicroSD card, allowing the s
 
 
 
-```text
-
-&#x20;                ┌───────────────────┐
-
-&#x20;                │ Soil Moisture      │
-
-&#x20;                │ Sensor             │
-
-&#x20;                └─────────┬─────────┘
-
-&#x20;                          │
-
-&#x20;                          ▼
-
-┌───────────────┐       ┌──────────────┐
-
-│ Water Level         │───► │ Arduino Nano │
-
-│ Float Switch        │       └──────┬───────┘
-
-└───────────────┘                 │
-
-&#x20;                                       │
-
-&#x20;                   ┌──────────────┼──────────────┐
-
-&#x20;            │              │              │
-
-&#x20;            ▼              ▼              ▼
-
-&#x20;          Pump          MicroSD          LED
-
-&#x20;          Relay         Logging         Status
-
-&#x20;            │
-
-&#x20;            ▼
-
-&#x20;        Watering
-
-&#x20;         System
+                 ┌───────────────────┐
+                 │ Soil Moisture      │
+                 │ Sensor             │
+                 └─────────┬─────────┘
+                           │
+                           ▼
+┌───────────────┐    ┌──────────────┐
+│ Water Level   │───►│ Arduino Nano │
+│ Float Switch  │    └──────┬───────┘
+└───────────────┘           │
+                            │
+             ┌──────────────┼──────────────┐
+             │              │              │
+             ▼              ▼              ▼
+           Pump          MicroSD          LED
+           Relay         Logging         Status
+             │
+             ▼
+         Watering
+          System
 
 ##### Hardware
 
